@@ -108,20 +108,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="机智少年的DS之路">
-<meta property="og:url" content="http://www.xinyuwg.com/index.html">
+  <meta name="description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
+<meta name="keywords" content="python相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python+newspaper实现通用新闻爬虫">
+<meta property="og:url" content="http://www.xinyuwg.com/2018/04/02/cjo1pioos0002j1udacymuuqb/index.html">
 <meta property="og:site_name" content="机智少年的DS之路">
+<meta property="og:description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-03T17:09:15.389Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机智少年的DS之路">
+<meta name="twitter:title" content="python+newspaper实现通用新闻爬虫">
+<meta name="twitter:description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.xinyuwg.com/">
+  <link rel="canonical" href="http://www.xinyuwg.com/2018/04/02/cjo1pioos0002j1udacymuuqb/">
 
 
 
@@ -131,7 +136,7 @@
   };
 </script>
 
-  <title>机智少年的DS之路</title>
+  <title>python+newspaper实现通用新闻爬虫 | 机智少年的DS之路</title>
   
 
 
@@ -180,8 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -218,7 +222,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
   </li>
@@ -270,189 +274,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/03/cjo1piop00006j1uds5frfvkm/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyu@BNU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="机智少年的DS之路">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/cjo1piop00006j1uds5frfvkm/" itemprop="url">
-                  shell技巧
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-03 20:21:32" itemprop="dateCreated datePublished" datetime="2018-11-03T20:21:32+08:00">2018-11-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-04 01:09:15" itemprop="dateModified" datetime="2018-11-04T01:09:15+08:00">2018-11-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/shell/" itemprop="url" rel="index"><span itemprop="name">shell</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="如何将任务在后台挂起"><a href="#如何将任务在后台挂起" class="headerlink" title="如何将任务在后台挂起"></a>如何将任务在后台挂起</h2><p><strong>情景</strong></p>
-<p>遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令</p>
-<p><strong>命令</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup commands &amp;</span><br></pre></td></tr></table></figure>
-<p>此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/11/03/cjo1piop00006j1uds5frfvkm/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -484,11 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/cjo1pioos0002j1udacymuuqb/" itemprop="url">
-                  python+newspaper实现通用新闻爬虫
-                </a>
+          <h1 class="post-title" itemprop="name headline">python+newspaper实现通用新闻爬虫
               
             
           </h1>
@@ -581,19 +401,14 @@
       
 
       
-        
-          <p>某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作…</p>
+        <p>某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作…</p>
 <p>直到有一天,我发现了newspaper这个库,感叹相见恨晚!几行代码分分钟解决所有网站,不管正文标题作者图片统统拿下.可惜对于某些网站可能会出现问题,不过可以通过一些简单的规则舍弃这些问题数据.十分好奇这个库是怎么实现的,等有时间读读代码了解下.<br>该库的使用方法具体可上<a href="https://github.com/codelucas/newspaper" target="_blank" rel="noopener">github</a>了解,以下介绍些常用功能.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/04/02/cjo1pioos0002j1udacymuuqb/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
+<a id="more"></a>
+<h1 id="newspaper安装"><a href="#newspaper安装" class="headerlink" title="newspaper安装"></a>newspaper安装</h1><p><code>$ pip3 install newspaper3k</code></p>
+<h1 id="爬取新闻"><a href="#爬取新闻" class="headerlink" title="爬取新闻"></a>爬取新闻</h1><p>随手找了篇<a href="&#39;http://tech.sina.com.cn/i/2018-04-02/doc-ifysvimn9721596.shtml&#39;">新闻</a>当栗子.</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from newspaper import Article</span><br><span class="line"><span class="meta"># 待爬新闻链接</span></span><br><span class="line">url = <span class="string">'http://tech.sina.com.cn/i/2018-04-02/doc-ifysvimn9721596.shtml'</span></span><br><span class="line"><span class="meta"># 建立实例,该处可指定待爬网站语言,中文为zh,英文为en,也可省略</span></span><br><span class="line">article = Article(url, language=<span class="string">'zh'</span>)</span><br><span class="line"><span class="meta"># 下载解析</span></span><br><span class="line">article.download()</span><br><span class="line">article.parse()</span><br><span class="line"><span class="meta"># 获取新闻正文</span></span><br><span class="line">article.text</span><br><span class="line"><span class="meta"># 获取发布日期</span></span><br><span class="line">article.publish_date</span><br><span class="line"><span class="meta"># 获取正文图片</span></span><br><span class="line">article.top_image</span><br><span class="line"><span class="meta"># 获取所有图片链接</span></span><br><span class="line">article.imgs</span><br><span class="line"><span class="meta"># 自然语言处理</span></span><br><span class="line">article.nlp()</span><br><span class="line"><span class="meta"># 获取关键词</span></span><br><span class="line">article.keywords</span><br></pre></td></tr></table></figure>
+<p>可以说是非常高级了</p>
+
       
     </div>
 
@@ -611,196 +426,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo1pioow0003j1udtehya98z/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyu@BNU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="机智少年的DS之路">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/31/cjo1pioow0003j1udtehya98z/" itemprop="url">
-                  多项式拟合中的最小二乘与极大似然
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-31 20:11:25" itemprop="dateCreated datePublished" datetime="2018-03-31T20:11:25+08:00">2018-03-31</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-04 01:09:15" itemprop="dateModified" datetime="2018-11-04T01:09:15+08:00">2018-11-04</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/stat/" itemprop="url" rel="index"><span itemprop="name">stat</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/python相关/" rel="tag"># python相关</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <blockquote class="blockquote-center"><ol>
-<li>在噪声服从正态分布的假设下,最小二乘的解析解可由极大似然得到</li>
-<li>岭回归可以用正态分布和最大后验估计解释</li>
-</ol>
-</blockquote>
-<h2 id="多项式拟合"><a href="#多项式拟合" class="headerlink" title="多项式拟合"></a>多项式拟合</h2><p>先回顾下多项式拟合.假设训练集$X$由$N$个观测点组成,记作$X={x_1,x_2,…,x_N}$;其对应观测值为$t$.我们的目标是通过训练集建立模型,对新的观测点$\hat{x}$预测其对应的值$\hat{t}$.</p>
-<p>最直观的想法便是使用多项式来拟合,其形式如下:$$y(x,w)=w_0+w_1x+…+w_Mx^M=\sum_{n=0}^{M}{w_nx^n}$$<br>其中多项式系数$w_0,…,w_M$为多项式系数,记作向量$w$,是该模型的待估参数.$M$为多项式的阶数.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/03/31/cjo1pioow0003j1udtehya98z/#more" rel="contents">
-                阅读全文 &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/31/cjo1pioow0003j1udtehya98z/" rel="next" title="多项式拟合中的最小二乘与极大似然">
+                <i class="fa fa-chevron-left"></i> 多项式拟合中的最小二乘与极大似然
               </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
+            
+          </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/03/cjo1piop00006j1uds5frfvkm/" rel="prev" title="shell技巧">
+                shell技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -810,14 +469,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -838,8 +498,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -920,6 +589,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#newspaper安装"><span class="nav-number">1.</span> <span class="nav-text">newspaper安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#爬取新闻"><span class="nav-number">2.</span> <span class="nav-text">爬取新闻</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1061,6 +746,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
 
   
 
@@ -1118,41 +807,7 @@
 
   
   
-    
-      
-    
-      
-    
-      
-        
-      
-    
-  
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 
