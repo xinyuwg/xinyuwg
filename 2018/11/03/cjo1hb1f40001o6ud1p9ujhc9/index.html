@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="shell,">
 
 
 
@@ -94,17 +94,18 @@
 
 
 
-<meta name="description" content="从两年前开始就希望深入研究机器学习这一领域，平时也捣鼓了一些相关的项目，也没少修相关的课程。但转眼到了大四下了临近毕业，感觉还是在这方面不得门道。不过好在有段空闲的时间可以静下心好好从基础学起。已经看了一些科普类，导论类的书籍，如《集体智慧编程》（这是一本概括了经典的机器学习的书，虽然都只是浅浅地点一点，但挺适合入门）、周志华的西瓜书。两天前慕名拜读Christopher Bishop大神的《Pa">
+<meta name="description" content="1. 如何将任务在后台挂起情景遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个大胆的想法">
-<meta property="og:url" content="http://www.xinyuwg.com/2018/03/31/cjo1gyqx90004w6udlbzopdl0/index.html">
+<meta property="og:title" content="shell技巧">
+<meta property="og:url" content="http://www.xinyuwg.com/2018/11/03/cjo1hb1f40001o6ud1p9ujhc9/index.html">
 <meta property="og:site_name" content="机智少年的DS之路">
-<meta property="og:description" content="从两年前开始就希望深入研究机器学习这一领域，平时也捣鼓了一些相关的项目，也没少修相关的课程。但转眼到了大四下了临近毕业，感觉还是在这方面不得门道。不过好在有段空闲的时间可以静下心好好从基础学起。已经看了一些科普类，导论类的书籍，如《集体智慧编程》（这是一本概括了经典的机器学习的书，虽然都只是浅浅地点一点，但挺适合入门）、周志华的西瓜书。两天前慕名拜读Christopher Bishop大神的《Pa">
+<meta property="og:description" content="1. 如何将任务在后台挂起情景遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-31T12:08:33.489Z">
+<meta property="og:updated_time" content="2018-11-03T13:23:04.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个大胆的想法">
-<meta name="twitter:description" content="从两年前开始就希望深入研究机器学习这一领域，平时也捣鼓了一些相关的项目，也没少修相关的课程。但转眼到了大四下了临近毕业，感觉还是在这方面不得门道。不过好在有段空闲的时间可以静下心好好从基础学起。已经看了一些科普类，导论类的书籍，如《集体智慧编程》（这是一本概括了经典的机器学习的书，虽然都只是浅浅地点一点，但挺适合入门）、周志华的西瓜书。两天前慕名拜读Christopher Bishop大神的《Pa">
+<meta name="twitter:title" content="shell技巧">
+<meta name="twitter:description" content="1. 如何将任务在后台挂起情景遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
 
 
 
@@ -133,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.xinyuwg.com/2018/03/31/cjo1gyqx90004w6udlbzopdl0/">
+  <link rel="canonical" href="http://www.xinyuwg.com/2018/11/03/cjo1hb1f40001o6ud1p9ujhc9/">
 
 
 
 
 
-  <title>一个大胆的想法 | 机智少年的DS之路</title>
+  <title>shell技巧 | 机智少年的DS之路</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo1gyqx90004w6udlbzopdl0/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/03/cjo1hb1f40001o6ud1p9ujhc9/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一个大胆的想法</h1>
+          <h1 class="post-title" itemprop="name headline">shell技巧</h1>
         
 
         <div class="post-meta">
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-31T20:08:19+08:00">
-                2018-03-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-03T20:21:32+08:00">
+                2018-11-03
               </time>
             
 
@@ -309,7 +310,7 @@
 
           
           
-             <span id="/2018/03/31/cjo1gyqx90004w6udlbzopdl0/" class="leancloud_visitors" data-flag-title="一个大胆的想法">
+             <span id="/2018/11/03/cjo1hb1f40001o6ud1p9ujhc9/" class="leancloud_visitors" data-flag-title="shell技巧">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -340,7 +341,12 @@
       
 
       
-        <p>从两年前开始就希望深入研究机器学习这一领域，平时也捣鼓了一些相关的项目，也没少修相关的课程。但转眼到了大四下了临近毕业，感觉还是在这方面不得门道。不过好在有段空闲的时间可以静下心好好从基础学起。已经看了一些科普类，导论类的书籍，如《集体智慧编程》（这是一本概括了经典的机器学习的书，虽然都只是浅浅地点一点，但挺适合入门）、周志华的西瓜书。两天前慕名拜读Christopher Bishop大神的《Pattern Recognition and Machine Learning》，刚刚读完第一章，感叹相见恨晚，之前许多疑惑豁然开朗。暗暗立下一个半月读完的flag，不要半途而废啦。为了激励自己就开了这么一个博客，记录读书时领我印象深刻的一些想法与观点，对于谈及的一些算法，我也会尽力以我拙略的python去实现。就当是我在机器学习领域修行的第一步吧！</p>
+        <h2 id="1-如何将任务在后台挂起"><a href="#1-如何将任务在后台挂起" class="headerlink" title="1. 如何将任务在后台挂起"></a>1. 如何将任务在后台挂起</h2><h4 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h4><p>遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令</p>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><strong>nohup commands &amp;</strong></p>
+<p>此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。</p>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><p>我们最常见的操作就是 nohup hive -f filename.sql &gt; log &amp;， 通过该命令我们可以很方便地将 hive 任务放入后台，并将日志直接打到 log 文件中。随时都可以通过 tail log 来查看任务进度，或者使用 jobs -l 来查看任务是否完成，甚至可以通过 kill -9 pid 来终止任务。</p>
+<p>但更多时候我们需要将任务结果单独写到一个文件中，日志打到另外一个文件中，这个时候就应该运用到 shell 的 stderr 和 stdout 了，1&gt; 为重定向标准输出，2&gt; 是重定向标准错误，对于 shell 重定向不熟悉的同学可以百度学习下。于是，最终语句就是这样，<strong>nohup hive -f filename.sql 1&gt;res 2&gt;log &amp;</strong></p>
+<p>（如果有多窗口需求，推荐使用screen。）</p>
 
       
     </div>
@@ -356,6 +362,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
+      
 
       
       
@@ -365,15 +377,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/04/02/cjo1hb1f00000o6udlqxninnj/" rel="next" title="python+newspaper实现通用新闻爬虫">
+                <i class="fa fa-chevron-left"></i> python+newspaper实现通用新闻爬虫
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/31/cjo1gyqx40001w6udvmhz2vas/" rel="prev" title="多项式拟合中的最小二乘与极大似然">
-                多项式拟合中的最小二乘与极大似然 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -427,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Xinyu@BNU">
           <p class="site-author-name" itemprop="name">Xinyu@BNU</p>
@@ -479,6 +500,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-如何将任务在后台挂起"><span class="nav-number">1.</span> <span class="nav-text">1. 如何将任务在后台挂起</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情景"><span class="nav-number">1.0.1.</span> <span class="nav-text">情景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令"><span class="nav-number">1.0.2.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展"><span class="nav-number">1.0.3.</span> <span class="nav-text">拓展</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
