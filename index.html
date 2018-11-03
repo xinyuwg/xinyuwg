@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/03/cjo1g9n3z0000q1udac71sp7c/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/03/cjo1gyqwz0000w6udluzl65ui/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -279,7 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/03/cjo1g9n3z0000q1udac71sp7c/" itemprop="url">linux奇淫技巧</a></h1>
+                <a class="post-title-link" href="/2018/11/03/cjo1gyqwz0000w6udluzl65ui/" itemprop="url">shell奇淫技巧</a></h1>
         
 
         <div class="post-meta">
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2018/11/03/cjo1g9n3z0000q1udac71sp7c/" class="leancloud_visitors" data-flag-title="linux奇淫技巧">
+             <span id="/2018/11/03/cjo1gyqwz0000w6udluzl65ui/" class="leancloud_visitors" data-flag-title="shell奇淫技巧">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,7 +342,13 @@
       
         
           
-            
+            <h2 id="1-如何将任务在后台挂起"><a href="#1-如何将任务在后台挂起" class="headerlink" title="1. 如何将任务在后台挂起"></a>1. 如何将任务在后台挂起</h2><h4 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h4><p>遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令</p>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><strong>nohup commands &amp;</strong></p>
+<p>此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。</p>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><p>我们最常见的操作就是 nohup hive -f filename.sql &gt; log &amp;， 通过该命令我们可以很方便地将 hive 任务放入后台，并将日志直接打到 log 文件中。随时都可以通过 tail log 来查看任务进度，或者使用 jobs -l 来查看任务是否完成，甚至可以通过 kill -9 pid 来终止任务。</p>
+<p>但更多时候我们需要将任务结果单独写到一个文件中，日志打到另外一个文件中，这个时候就应该运用到 shell 的 stderr 和 stdout 了，1&gt; 为重定向标准输出，2&gt; 是重定向标准错误，对于 shell 重定向不熟悉的同学可以百度学习下。于是，最终语句就是这样，<strong>nohup hive -f filename.sql 1&gt;res 2&gt;log &amp;</strong></p>
+<p>（如果有多窗口需求，推荐使用screen。）</p>
+
           
         
       
@@ -390,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/04/02/cjo1g9n450001q1udssa5mo7d/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/04/02/cjo1gyqx70003w6udtpd2bjaj/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -409,7 +415,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/cjo1g9n450001q1udssa5mo7d/" itemprop="url">python+newspaper实现通用新闻爬虫</a></h1>
+                <a class="post-title-link" href="/2018/04/02/cjo1gyqx70003w6udtpd2bjaj/" itemprop="url">python+newspaper实现通用新闻爬虫</a></h1>
         
 
         <div class="post-meta">
@@ -439,7 +445,7 @@
 
           
           
-             <span id="/2018/04/02/cjo1g9n450001q1udssa5mo7d/" class="leancloud_visitors" data-flag-title="python+newspaper实现通用新闻爬虫">
+             <span id="/2018/04/02/cjo1gyqx70003w6udtpd2bjaj/" class="leancloud_visitors" data-flag-title="python+newspaper实现通用新闻爬虫">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -526,7 +532,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo1g9n490002q1udj602dox5/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo1gyqx40001w6udvmhz2vas/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -545,7 +551,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/cjo1g9n490002q1udj602dox5/" itemprop="url">多项式拟合中的最小二乘与极大似然</a></h1>
+                <a class="post-title-link" href="/2018/03/31/cjo1gyqx40001w6udvmhz2vas/" itemprop="url">多项式拟合中的最小二乘与极大似然</a></h1>
         
 
         <div class="post-meta">
@@ -575,7 +581,7 @@
 
           
           
-             <span id="/2018/03/31/cjo1g9n490002q1udj602dox5/" class="leancloud_visitors" data-flag-title="多项式拟合中的最小二乘与极大似然">
+             <span id="/2018/03/31/cjo1gyqx40001w6udvmhz2vas/" class="leancloud_visitors" data-flag-title="多项式拟合中的最小二乘与极大似然">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -673,7 +679,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo1g9n4e0004q1ud5i0kxgdy/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo1gyqx90004w6udlbzopdl0/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -692,7 +698,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/cjo1g9n4e0004q1ud5i0kxgdy/" itemprop="url">一个大胆的想法</a></h1>
+                <a class="post-title-link" href="/2018/03/31/cjo1gyqx90004w6udlbzopdl0/" itemprop="url">一个大胆的想法</a></h1>
         
 
         <div class="post-meta">
@@ -722,7 +728,7 @@
 
           
           
-             <span id="/2018/03/31/cjo1g9n4e0004q1ud5i0kxgdy/" class="leancloud_visitors" data-flag-title="一个大胆的想法">
+             <span id="/2018/03/31/cjo1gyqx90004w6udlbzopdl0/" class="leancloud_visitors" data-flag-title="一个大胆的想法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -848,7 +854,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
