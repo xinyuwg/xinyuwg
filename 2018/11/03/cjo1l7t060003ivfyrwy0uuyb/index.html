@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="shell,">
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="机智少年的DS之路">
-<meta property="og:url" content="http://www.xinyuwg.com/index.html">
+<meta name="description" content="1. 如何将任务在后台挂起情景遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell技巧">
+<meta property="og:url" content="http://www.xinyuwg.com/2018/11/03/cjo1l7t060003ivfyrwy0uuyb/index.html">
 <meta property="og:site_name" content="机智少年的DS之路">
+<meta property="og:description" content="1. 如何将任务在后台挂起情景遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-03T15:11:59.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机智少年的DS之路">
+<meta name="twitter:title" content="shell技巧">
+<meta name="twitter:description" content="1. 如何将任务在后台挂起情景遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.xinyuwg.com/">
+  <link rel="canonical" href="http://www.xinyuwg.com/2018/11/03/cjo1l7t060003ivfyrwy0uuyb/">
 
 
 
 
 
-  <title>机智少年的DS之路</title>
+  <title>shell技巧 | 机智少年的DS之路</title>
   
 
 
@@ -160,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -255,9 +258,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -287,9 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/03/cjo1l7t060003ivfyrwy0uuyb/" itemprop="url">shell技巧</a></h1>
+          <h1 class="post-title" itemprop="name headline">shell技巧</h1>
         
 
         <div class="post-meta">
@@ -372,18 +373,24 @@
       
 
       
-        
-          <h2 id="1-如何将任务在后台挂起"><a href="#1-如何将任务在后台挂起" class="headerlink" title="1. 如何将任务在后台挂起"></a>1. 如何将任务在后台挂起</h2><h4 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h4><p>遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令</p>
+        <h2 id="1-如何将任务在后台挂起"><a href="#1-如何将任务在后台挂起" class="headerlink" title="1. 如何将任务在后台挂起"></a>1. 如何将任务在后台挂起</h2><h4 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h4><p>遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令</p>
 <h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><strong>nohup commands &amp;</strong></p>
 <p>此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/03/cjo1l7t060003ivfyrwy0uuyb/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><p>我们最常见的操作就是 nohup hive -f filename.sql &gt; log &amp;， 通过该命令我们可以很方便地将 hive 任务放入后台，并将日志直接打到 log 文件中。随时都可以通过 tail log 来查看任务进度，或者使用 jobs -l 来查看任务是否完成，甚至可以通过 kill -9 pid 来终止任务。</p>
+<p>但更多时候我们需要将任务结果单独写到一个文件中，日志打到另外一个文件中，这个时候就应该运用到 shell 的 stderr 和 stdout 了，1&gt; 为重定向标准输出，2&gt; 是重定向标准错误，对于 shell 重定向不熟悉的同学可以百度学习下。于是，最终语句就是这样，<strong>nohup hive -f filename.sql 1&gt;res 2&gt;log &amp;</strong></p>
+<p>（如果有多窗口需求，推荐使用screen。）</p>
+<h2 id="2-如何便捷查询多个-sql"><a href="#2-如何便捷查询多个-sql" class="headerlink" title="2. 如何便捷查询多个 sql"></a>2. 如何便捷查询多个 sql</h2><h4 id="情景-1"><a href="#情景-1" class="headerlink" title="情景"></a>情景</h4><p>对于一个需求，我们可能遇到要计算好多个指标的情况。虽然我们可以写完代码丢给 PM 小姐姐自己跑，那万一遇到只能我们自己来计算的情况怎么办呢，难道一段一段 sql 丢进 hive 吗？不够效率与优雅。</p>
+<p><em>实现自动化的前提是 sql 写的要足够规范，<strong>假设我们已经将所有需要计算的指标放入了同一个 sql 文件，并且每一段 sql 的开头备注了指标名称，结尾加上了分号</strong>（脚本根据分号分割每一个命令）。具体范例如下：</em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 当天订单总量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db1.table1</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    dt = <span class="string">'20181020'</span>;</span><br><span class="line"><span class="comment">-- 当天完成单量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db1.table1</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    dt = <span class="string">'20181020'</span></span><br><span class="line">    <span class="keyword">and</span> order_status = <span class="string">'finish'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h4><p> <strong>cat  filename.sql | xargs -d ‘;’ -n 1 sh ./run_sql.sh</strong></p>
+<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if [ $&#123;#1&#125; -gt 30 ]; then</span><br><span class="line">    tmp=($1)</span><br><span class="line">    hive -e "$1" &gt; $&#123;tmp[1]&#125;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>xargs 命令可以拆分字符串并作为参数传入后续的命令或脚本，搭配上 shell 管道可玩性非常大。</p>
+<p>通过 cat 读取 sql，作为字符串传输给 xargs 命令；xargs 识别’;’进行文本的切分，将结果作为参数传输给 run_sql.sh；该 shell 脚本先对传输进来的 sql 作一个长度的判断，去除一些异常的情况，然后运行 hive，并将结果打到与 sql 第一行注释同名的文件中。</p>
+<h4 id="拓展-1"><a href="#拓展-1" class="headerlink" title="拓展"></a>拓展</h4><p>该方法搭配 nohup 使用更加便捷，如 nohup cat filename.sql | xargs -d ‘;’ -n 1 sh ./run_sql.sh 2&gt; log &amp; 。打完这条命令就可以回家了，再也不用加班跑 sql。</p>
+<h4 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h4><p>实现该功能的方法其实有很多，比如写循环也可以实现。不过 xargs 的写法会更加简洁和优雅。</p>
+<p>再举个例子，如果后台存在大量 stopped 的进程，可以使用 jobs -l | grep ‘Stopped’ | cut -d ‘ ‘ -f 3 | xargs -n 1 kill -9 这一条命令进行击杀掉。</p>
+
       
     </div>
     
@@ -398,333 +405,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/04/02/cjo1l7t030002ivfyxio6ljcf/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyu@BNU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="机智少年的DS之路">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/cjo1l7t030002ivfyxio6ljcf/" itemprop="url">python+newspaper实现通用新闻爬虫</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T11:45:25+08:00">
-                2018-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/04/02/cjo1l7t030002ivfyxio6ljcf/" class="leancloud_visitors" data-flag-title="python+newspaper实现通用新闻爬虫">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作…</p>
-<p>直到有一天,我发现了newspaper这个库,感叹相见恨晚!几行代码分分钟解决所有网站,不管正文标题作者图片统统拿下.可惜对于某些网站可能会出现问题,不过可以通过一些简单的规则舍弃这些问题数据.十分好奇这个库是怎么实现的,等有时间读读代码了解下.<br>该库的使用方法具体可上<a href="https://github.com/codelucas/newspaper" target="_blank" rel="noopener">github</a>了解,以下介绍些常用功能.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/02/cjo1l7t030002ivfyxio6ljcf/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/cjo1l7t030002ivfyxio6ljcf/" rel="next" title="python+newspaper实现通用新闻爬虫">
+                <i class="fa fa-chevron-left"></i> python+newspaper实现通用新闻爬虫
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo1l7t0a0006ivfyajjjwuya/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Xinyu@BNU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="机智少年的DS之路">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/31/cjo1l7t0a0006ivfyajjjwuya/" itemprop="url">多项式拟合中的最小二乘与极大似然</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T20:11:25+08:00">
-                2018-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/stat/" itemprop="url" rel="index">
-                    <span itemprop="name">stat</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/03/31/cjo1l7t0a0006ivfyajjjwuya/" class="leancloud_visitors" data-flag-title="多项式拟合中的最小二乘与极大似然">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote class="blockquote-center"><ol>
-<li>在噪声服从正态分布的假设下,最小二乘的解析解可由极大似然得到</li>
-<li>岭回归可以用正态分布和最大后验估计解释</li>
-</ol>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/31/cjo1l7t0a0006ivfyajjjwuya/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -734,10 +444,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -745,6 +456,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTM1OS8xMTg5NQ=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -765,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Xinyu@BNU">
           <p class="site-author-name" itemprop="name">Xinyu@BNU</p>
@@ -826,6 +552,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-如何将任务在后台挂起"><span class="nav-number">1.</span> <span class="nav-text">1. 如何将任务在后台挂起</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情景"><span class="nav-number">1.0.1.</span> <span class="nav-text">情景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令"><span class="nav-number">1.0.2.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展"><span class="nav-number">1.0.3.</span> <span class="nav-text">拓展</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何便捷查询多个-sql"><span class="nav-number">2.</span> <span class="nav-text">2. 如何便捷查询多个 sql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情景-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">情景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本"><span class="nav-number">2.0.3.</span> <span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解释"><span class="nav-number">2.0.4.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展-1"><span class="nav-number">2.0.5.</span> <span class="nav-text">拓展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#感想"><span class="nav-number">2.0.6.</span> <span class="nav-text">感想</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -952,10 +694,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -984,6 +726,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
@@ -1111,26 +864,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
