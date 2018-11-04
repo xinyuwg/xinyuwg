@@ -141,27 +141,25 @@
 
 
 
-  <meta name="description" content="union 的时候注意字段类型情景 在使用 union 的时候千万注意字段的类型，hive 会无脑地将 union 前后位置相同的字段合并为同一列，但不会因为字段类型不同而抛出异常或者错误。然而这时候这些新产出的字段若类型不同则不可用。 踩坑 在计算时间延续的时候，是要按时间排序然后取出某个事件的下一个事件和下一个事件的触发时间。不同事件出现在不同表中，就需要 union 两张表，代码如下： 12">
-<meta name="keywords" content="踩坑&amp;填坑">
+  <meta name="description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
+<meta name="keywords" content="python相关">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hiveの坑">
-<meta property="og:url" content="http://www.xinyuwg.com/2018/11/04/cjo2zvy4p0007sgfyq2goux34/index.html">
+<meta property="og:title" content="python+newspaper实现通用新闻爬虫">
+<meta property="og:url" content="http://www.xinyuwg.com/2018/04/02/cjo300sox0002vffy30cm5h0k/index.html">
 <meta property="og:site_name" content="机智少年的DS之路">
-<meta property="og:description" content="union 的时候注意字段类型情景 在使用 union 的时候千万注意字段的类型，hive 会无脑地将 union 前后位置相同的字段合并为同一列，但不会因为字段类型不同而抛出异常或者错误。然而这时候这些新产出的字段若类型不同则不可用。 踩坑 在计算时间延续的时候，是要按时间排序然后取出某个事件的下一个事件和下一个事件的触发时间。不同事件出现在不同表中，就需要 union 两张表，代码如下： 12">
+<meta property="og:description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.xinyuwg.com/img/union_timestamp_.png">
-<meta property="og:updated_time" content="2018-11-04T14:41:00.406Z">
+<meta property="og:updated_time" content="2018-11-04T14:55:15.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hiveの坑">
-<meta name="twitter:description" content="union 的时候注意字段类型情景 在使用 union 的时候千万注意字段的类型，hive 会无脑地将 union 前后位置相同的字段合并为同一列，但不会因为字段类型不同而抛出异常或者错误。然而这时候这些新产出的字段若类型不同则不可用。 踩坑 在计算时间延续的时候，是要按时间排序然后取出某个事件的下一个事件和下一个事件的触发时间。不同事件出现在不同表中，就需要 union 两张表，代码如下： 12">
-<meta name="twitter:image" content="http://www.xinyuwg.com/img/union_timestamp_.png">
+<meta name="twitter:title" content="python+newspaper实现通用新闻爬虫">
+<meta name="twitter:description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.xinyuwg.com/2018/11/04/cjo2zvy4p0007sgfyq2goux34/">
+  <link rel="canonical" href="http://www.xinyuwg.com/2018/04/02/cjo300sox0002vffy30cm5h0k/">
 
 
 
@@ -171,7 +169,7 @@
   };
 </script>
 
-  <title>hiveの坑 | 机智少年的DS之路</title>
+  <title>python+newspaper实现通用新闻爬虫 | 机智少年的DS之路</title>
   
 
 
@@ -326,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/04/cjo2zvy4p0007sgfyq2goux34/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/04/02/cjo300sox0002vffy30cm5h0k/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -343,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hiveの坑
+          <h1 class="post-title" itemprop="name headline">python+newspaper实现通用新闻爬虫
               
             
           </h1>
@@ -368,12 +366,24 @@
                 
               
 
-              <time title="创建时间：2018-11-04 21:23:20 / 修改时间：22:41:00" itemprop="dateCreated datePublished" datetime="2018-11-04T21:23:20+08:00">2018-11-04</time>
+              <time title="创建时间：2018-04-02 11:45:25" itemprop="dateCreated datePublished" datetime="2018-04-02T11:45:25+08:00">2018-04-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-04 22:55:15" itemprop="dateModified" datetime="2018-11-04T22:55:15+08:00">2018-11-04</time>
               
             
           </span>
@@ -390,7 +400,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/踩坑-填坑/" itemprop="url" rel="index"><span itemprop="name">踩坑&填坑</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
 
                 
                 
@@ -431,17 +441,13 @@
       
 
       
-        <h2 id="union-的时候注意字段类型"><a href="#union-的时候注意字段类型" class="headerlink" title="union 的时候注意字段类型"></a>union 的时候注意字段类型</h2><p><strong>情景</strong></p>
-<p>在使用 union 的时候千万注意字段的类型，hive 会无脑地将 union 前后位置相同的字段合并为同一列，但不会因为字段类型不同而抛出异常或者错误。然而这时候这些新产出的字段若类型不同则不可用。</p>
-<p><strong>踩坑</strong></p>
-<p>在计算时间延续的时候，是要按时间排序然后取出某个事件的下一个事件和下一个事件的触发时间。不同事件出现在不同表中，就需要 union 两张表，代码如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    uid order_id,</span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">year</span>, <span class="keyword">month</span>, <span class="keyword">day</span>) dt,</span><br><span class="line">    attrs[<span class="string">'timestamp'</span>] timestamp_,</span><br><span class="line">    <span class="string">'event_1'</span> event_id,</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db.table1</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">YEAR</span>, <span class="keyword">MONTH</span>, <span class="keyword">DAY</span>) = <span class="string">'20181030'</span></span><br><span class="line"><span class="keyword">union</span> all</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    param[<span class="string">'OrderId'</span>] order_id,</span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">year</span>,<span class="keyword">month</span>,<span class="keyword">day</span>) dt,</span><br><span class="line">    param[<span class="string">'Timestamp'</span>]*<span class="number">1000</span> timestamp_,</span><br><span class="line">    <span class="string">'event_2'</span> event_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db.table2</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">year</span>,<span class="keyword">month</span>,<span class="keyword">day</span>) = <span class="string">'20181030'</span></span><br></pre></td></tr></table></figure>
-<p>请关注 timestamp_这个字段，在第二张表中，该字段需要做一个乘法，而被转换为 double 类型，而在第一张表中仍为 string 类型。这两张表 union 后该字段被转成 string 类型。</p>
+        <p>某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作…</p>
+<p>直到有一天,我发现了newspaper这个库,感叹相见恨晚!几行代码分分钟解决所有网站,不管正文标题作者图片统统拿下.可惜对于某些网站可能会出现问题,不过可以通过一些简单的规则舍弃这些问题数据.十分好奇这个库是怎么实现的,等有时间读读代码了解下.<br>该库的使用方法具体可上<a href="https://github.com/codelucas/newspaper" target="_blank" rel="noopener">github</a>了解,以下介绍些常用功能.</p>
 <a id="more"></a>
-<p>若将union后的表建为临时表并观察字段类型，可以发现这个时候timestamp_为String类型。这个字段的数据有 1540898212383 这样的，也有 1.540913442E12 这样的。虽然这两者都可以被隐式（或显式地）转换为长度相同的数字，如果后续不加处理地对这个字段进行排序，出来结果其实完全无序的（因为string的排序是按字符的顺序，而不是值的大小）。</p>
-<p><img src="/img/union_timestamp_.png" alt="union后的timestamp_字段"></p>
-<p><strong>填坑</strong></p>
-<p>这种问题不会造成异常或错误，如果直接输出的是聚合后的结果，问题完全无法感知。所以在时候 union 的时候千万注意字段类型，或使用<strong><em>CAST</em> (expression <em>AS</em> data_type)</strong> 统一强行统一字段类别。</p>
+<h1 id="newspaper安装"><a href="#newspaper安装" class="headerlink" title="newspaper安装"></a>newspaper安装</h1><p><code>$ pip3 install newspaper3k</code></p>
+<h1 id="爬取新闻"><a href="#爬取新闻" class="headerlink" title="爬取新闻"></a>爬取新闻</h1><p>随手找了篇<a href="&#39;http://tech.sina.com.cn/i/2018-04-02/doc-ifysvimn9721596.shtml&#39;">新闻</a>当栗子.</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from newspaper import Article</span><br><span class="line"><span class="meta"># 待爬新闻链接</span></span><br><span class="line">url = <span class="string">'http://tech.sina.com.cn/i/2018-04-02/doc-ifysvimn9721596.shtml'</span></span><br><span class="line"><span class="meta"># 建立实例,该处可指定待爬网站语言,中文为zh,英文为en,也可省略</span></span><br><span class="line">article = Article(url, language=<span class="string">'zh'</span>)</span><br><span class="line"><span class="meta"># 下载解析</span></span><br><span class="line">article.download()</span><br><span class="line">article.parse()</span><br><span class="line"><span class="meta"># 获取新闻正文</span></span><br><span class="line">article.text</span><br><span class="line"><span class="meta"># 获取发布日期</span></span><br><span class="line">article.publish_date</span><br><span class="line"><span class="meta"># 获取正文图片</span></span><br><span class="line">article.top_image</span><br><span class="line"><span class="meta"># 获取所有图片链接</span></span><br><span class="line">article.imgs</span><br><span class="line"><span class="meta"># 自然语言处理</span></span><br><span class="line">article.nlp()</span><br><span class="line"><span class="meta"># 获取关键词</span></span><br><span class="line">article.keywords</span><br></pre></td></tr></table></figure>
+<p>可以说是非常高级了</p>
 
       
     </div>
@@ -462,7 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/踩坑-填坑/" rel="tag"># 踩坑&填坑</a>
+            <a href="/tags/python相关/" rel="tag"># python相关</a>
           
         </div>
       
@@ -475,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/03/cjo2zvy4j0003sgfysy8xbk8p/" rel="next" title="shell技巧">
-                <i class="fa fa-chevron-left"></i> shell技巧
+              <a href="/2018/03/31/cjo300sp80006vffy2o6s9yyz/" rel="next" title="多项式拟合中的最小二乘与极大似然">
+                <i class="fa fa-chevron-left"></i> 多项式拟合中的最小二乘与极大似然
               </a>
             
           </div>
@@ -484,6 +490,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/03/cjo300sp10003vffy0r8mhn3g/" rel="prev" title="shell技巧">
+                shell技巧 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -633,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#union-的时候注意字段类型"><span class="nav-number">1.</span> <span class="nav-text">union 的时候注意字段类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#newspaper安装"><span class="nav-number">1.</span> <span class="nav-text">newspaper安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#爬取新闻"><span class="nav-number">2.</span> <span class="nav-text">爬取新闻</span></a></li></ol></div>
             
 
           </div>
