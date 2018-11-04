@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -53,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -64,10 +97,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/20181104103924381_easyicon_net_32.icns?v=6.5.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/20181104103930402_easyicon_net_16.icns?v=6.5.0">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
@@ -108,25 +141,25 @@
 
 
 
-  <meta name="description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
-<meta name="keywords" content="python相关">
+  <meta name="description" content="如何将任务在后台挂起情景 遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令 1nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python+newspaper实现通用新闻爬虫">
-<meta property="og:url" content="http://www.xinyuwg.com/2018/04/02/cjo2gp75h0002jpudrhes86lh/index.html">
+<meta property="og:title" content="shell技巧">
+<meta property="og:url" content="http://www.xinyuwg.com/2018/11/03/cjo2zi5kw0002oofy0l1nrz2t/index.html">
 <meta property="og:site_name" content="机智少年的DS之路">
-<meta property="og:description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
+<meta property="og:description" content="如何将任务在后台挂起情景 遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令 1nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-04T05:50:28.968Z">
+<meta property="og:updated_time" content="2018-11-04T14:32:25.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python+newspaper实现通用新闻爬虫">
-<meta name="twitter:description" content="某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作… 直到有一天,我发现了newspaper这个库,感叹相见恨晚!几">
+<meta name="twitter:title" content="shell技巧">
+<meta name="twitter:description" content="如何将任务在后台挂起情景 遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令 命令 1nohup commands &amp;amp; 此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp;amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://www.xinyuwg.com/2018/04/02/cjo2gp75h0002jpudrhes86lh/">
+  <link rel="canonical" href="http://www.xinyuwg.com/2018/11/03/cjo2zi5kw0002oofy0l1nrz2t/">
 
 
 
@@ -136,7 +169,7 @@
   };
 </script>
 
-  <title>python+newspaper实现通用新闻爬虫 | 机智少年的DS之路</title>
+  <title>shell技巧 | 机智少年的DS之路</title>
   
 
 
@@ -291,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/04/02/cjo2gp75h0002jpudrhes86lh/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/03/cjo2zi5kw0002oofy0l1nrz2t/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -308,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python+newspaper实现通用新闻爬虫
+          <h1 class="post-title" itemprop="name headline">shell技巧
               
             
           </h1>
@@ -333,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2018-04-02 11:45:25" itemprop="dateCreated datePublished" datetime="2018-04-02T11:45:25+08:00">2018-04-02</time>
+              <time title="创建时间：2018-11-03 20:21:32" itemprop="dateCreated datePublished" datetime="2018-11-03T20:21:32+08:00">2018-11-03</time>
             
 
             
@@ -350,7 +383,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-04 13:50:28" itemprop="dateModified" datetime="2018-11-04T13:50:28+08:00">2018-11-04</time>
+                <time title="修改时间：2018-11-04 22:32:25" itemprop="dateModified" datetime="2018-11-04T22:32:25+08:00">2018-11-04</time>
               
             
           </span>
@@ -367,7 +400,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/shell/" itemprop="url" rel="index"><span itemprop="name">shell</span></a></span>
 
                 
                 
@@ -408,13 +441,33 @@
       
 
       
-        <p>某日被老板叫进小黑屋,要求写个新闻爬虫,能够对给定的关键词收集相关新闻.心想还不简单,爬爬百度新闻不就完事.可事实证明我还是too naive,交差时老板又要求每篇新闻的正文都要抓下来.跟其解释需要对每个新闻网站编写相应的爬取规则,工作量难以想象.老板表示理解,然后语重心长表示该工作重要性.于是我开始了痛苦且繁琐且没有技术含量的工作…</p>
-<p>直到有一天,我发现了newspaper这个库,感叹相见恨晚!几行代码分分钟解决所有网站,不管正文标题作者图片统统拿下.可惜对于某些网站可能会出现问题,不过可以通过一些简单的规则舍弃这些问题数据.十分好奇这个库是怎么实现的,等有时间读读代码了解下.<br>该库的使用方法具体可上<a href="https://github.com/codelucas/newspaper" target="_blank" rel="noopener">github</a>了解,以下介绍些常用功能.</p>
+        <h2 id="如何将任务在后台挂起"><a href="#如何将任务在后台挂起" class="headerlink" title="如何将任务在后台挂起"></a>如何将任务在后台挂起</h2><p><strong>情景</strong></p>
+<p>遇到执行一些复杂 sql 或者脚本任务时会耗费大量时间，如果直接在线上服务器直接运行，可能出现在任务结束之前连接断开，或者手误将任务终止导致任务失败的情况。这个时候就需要使用 nohup 命令</p>
+<p><strong>命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup commands &amp;</span><br></pre></td></tr></table></figure>
+<p>此处 nohup 作用保证任务挂起，不会因为连接断开而终止任务； &amp; 意味着将任务放入后台，从而可以在该前台进行其他操作。</p>
 <a id="more"></a>
-<h1 id="newspaper安装"><a href="#newspaper安装" class="headerlink" title="newspaper安装"></a>newspaper安装</h1><p><code>$ pip3 install newspaper3k</code></p>
-<h1 id="爬取新闻"><a href="#爬取新闻" class="headerlink" title="爬取新闻"></a>爬取新闻</h1><p>随手找了篇<a href="&#39;http://tech.sina.com.cn/i/2018-04-02/doc-ifysvimn9721596.shtml&#39;">新闻</a>当栗子.</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from newspaper import Article</span><br><span class="line"><span class="meta"># 待爬新闻链接</span></span><br><span class="line">url = <span class="string">'http://tech.sina.com.cn/i/2018-04-02/doc-ifysvimn9721596.shtml'</span></span><br><span class="line"><span class="meta"># 建立实例,该处可指定待爬网站语言,中文为zh,英文为en,也可省略</span></span><br><span class="line">article = Article(url, language=<span class="string">'zh'</span>)</span><br><span class="line"><span class="meta"># 下载解析</span></span><br><span class="line">article.download()</span><br><span class="line">article.parse()</span><br><span class="line"><span class="meta"># 获取新闻正文</span></span><br><span class="line">article.text</span><br><span class="line"><span class="meta"># 获取发布日期</span></span><br><span class="line">article.publish_date</span><br><span class="line"><span class="meta"># 获取正文图片</span></span><br><span class="line">article.top_image</span><br><span class="line"><span class="meta"># 获取所有图片链接</span></span><br><span class="line">article.imgs</span><br><span class="line"><span class="meta"># 自然语言处理</span></span><br><span class="line">article.nlp()</span><br><span class="line"><span class="meta"># 获取关键词</span></span><br><span class="line">article.keywords</span><br></pre></td></tr></table></figure>
-<p>可以说是非常高级了</p>
+<p><strong>拓展</strong></p>
+<p>我们最常见的操作就是 nohup hive -f filename.sql &gt; log &amp;， 通过该命令我们可以很方便地将 hive 任务放入后台，并将日志直接打到 log 文件中。随时都可以通过 tail log 来查看任务进度，或者使用 jobs -l 来查看任务是否完成，甚至可以通过 kill -9 pid 来终止任务。</p>
+<p>但更多时候我们需要将任务结果单独写到一个文件中，日志打到另外一个文件中，这个时候就应该运用到 shell 的 stderr 和 stdout 了，1&gt; 为重定向标准输出，2&gt; 是重定向标准错误，对于 shell 重定向不熟悉的同学可以百度学习下。于是，最终语句就是这样，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup hive -f filename.sql 1&gt;res 2&gt;<span class="built_in">log</span> &amp;</span><br></pre></td></tr></table></figure></p>
+<p>（如果有多窗口需求，推荐使用screen）</p>
+<hr>
+<h2 id="如何快速执行多个sql"><a href="#如何快速执行多个sql" class="headerlink" title="如何快速执行多个sql"></a>如何快速执行多个sql</h2><p><strong>情景</strong></p>
+<p>对于一个需求，我们可能遇到要计算好多个指标的情况。虽然我们可以写完代码丢给 PM 小姐姐自己跑，那万一遇到只能我们自己来计算的情况怎么办呢，难道一段一段 sql 丢进 hive 吗？不够效率与优雅。</p>
+<p><em>实现自动化的前提是 sql 写的要足够规范，<strong>假设我们已经将所有需要计算的指标放入了同一个 sql 文件，并且每一段 sql 的开头备注了指标名称，结尾加上了分号</strong>（脚本根据分号分割每一个命令）。具体范例如下：</em></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 当天订单总量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db1.table1</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    dt = <span class="string">'20181020'</span>;</span><br><span class="line"><span class="comment">-- 当天完成单量</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="keyword">count</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db1.table1</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    dt = <span class="string">'20181020'</span></span><br><span class="line">    <span class="keyword">and</span> order_status = <span class="string">'finished'</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat  filename.sql | xargs -d <span class="string">';'</span> -n 1 sh ./run_sql.sh</span><br></pre></td></tr></table></figure>
+<p><strong>脚本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;#1&#125;</span> -gt 30 ]; <span class="keyword">then</span></span><br><span class="line">    tmp=(<span class="variable">$1</span>)</span><br><span class="line">    hive -e <span class="string">"<span class="variable">$1</span>"</span> &gt; <span class="variable">$&#123;tmp[1]&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<p>xargs 命令可以拆分字符串并作为参数传入后续的命令或脚本，搭配上 shell 管道可玩性非常大。</p>
+<p>通过 cat 读取 sql，作为字符串传输给 xargs 命令；xargs 识别’;’进行文本的切分，将结果作为参数传输给 run_sql.sh；该 shell 脚本先对传输进来的 sql 作一个长度的判断，去除一些异常的情况，然后运行 hive，并将结果打到与 sql 第一行注释同名的文件中。</p>
+<p><strong>拓展</strong></p>
+<p>该方法搭配 nohup 使用更加便捷，如 <code>nohup cat filename.sql | xargs -d &#39;;&#39; -n 1 sh ./run_sql.sh 2&gt; log &amp;</code> 。打完这条命令就可以回家了，再也不用加班跑 sql。</p>
+<p><strong>感想</strong></p>
+<p>实现该功能的方法其实有很多，比如写循环也可以实现。不过 xargs 的写法会更加简洁和优雅。</p>
+<p>再举个例子，如果后台存在大量 stopped 的进程，可以使用 <code>jobs -l | grep &#39;Stopped&#39; | cut -d &#39; &#39; -f 3 | xargs -n 1 kill -9</code> 这一条命令进行击杀掉。</p>
 
       
     </div>
@@ -435,7 +488,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python相关/" rel="tag"># python相关</a>
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
         </div>
       
@@ -448,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/31/cjo2gp75k0003jpud9uoi2qry/" rel="next" title="多项式拟合中的最小二乘与极大似然">
-                <i class="fa fa-chevron-left"></i> 多项式拟合中的最小二乘与极大似然
+              <a href="/2018/04/02/cjo2zi5l50007oofy8rwrft2o/" rel="next" title="python+newspaper实现通用新闻爬虫">
+                <i class="fa fa-chevron-left"></i> python+newspaper实现通用新闻爬虫
               </a>
             
           </div>
@@ -458,8 +511,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/03/cjo2gp75o0006jpud4m0rztu8/" rel="prev" title="shell技巧">
-                shell技巧 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/04/cjo2zi5l40006oofyzuf2mzup/" rel="prev" title="hiveの坑">
+                hiveの坑 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -532,7 +585,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -551,7 +604,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -570,7 +625,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -606,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#newspaper安装"><span class="nav-number">1.</span> <span class="nav-text">newspaper安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#爬取新闻"><span class="nav-number">2.</span> <span class="nav-text">爬取新闻</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何将任务在后台挂起"><span class="nav-number">1.</span> <span class="nav-text">如何将任务在后台挂起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何快速执行多个sql"><span class="nav-number">2.</span> <span class="nav-text">如何快速执行多个sql</span></a></li></ol></div>
             
 
           </div>

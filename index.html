@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -53,6 +60,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -64,10 +97,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.5.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/20181104103924381_easyicon_net_32.icns?v=6.5.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.5.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/20181104103930402_easyicon_net_16.icns?v=6.5.0">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
@@ -287,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/03/cjo2gp75o0006jpud4m0rztu8/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/04/cjo2zi5l40006oofyzuf2mzup/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -306,7 +339,176 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/03/cjo2gp75o0006jpud4m0rztu8/" itemprop="url">
+                <a class="post-title-link" href="/2018/11/04/cjo2zi5l40006oofyzuf2mzup/" itemprop="url">
+                  hiveの坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-04 21:23:20 / 修改时间：22:32:25" itemprop="dateCreated datePublished" datetime="2018-11-04T21:23:20+08:00">2018-11-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/踩坑-填坑/" itemprop="url" rel="index"><span itemprop="name">踩坑&填坑</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="union-的时候注意字段类型"><a href="#union-的时候注意字段类型" class="headerlink" title="union 的时候注意字段类型"></a>union 的时候注意字段类型</h2><p><strong>情景</strong></p>
+<p>在使用 union 的时候千万注意字段的类型，hive 会无脑地将 union 前后位置相同的字段合并为同一列，但不会因为字段类型不同而抛出异常或者错误。然而这时候这些新产出的字段若类型不同则不可用。</p>
+<p><strong>踩坑</strong></p>
+<p>在计算时间延续的时候，是要按时间排序然后取出某个事件的下一个事件和下一个事件的触发时间。不同事件出现在不同表中，就需要 union 两张表，代码如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    uid order_id,</span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">year</span>, <span class="keyword">month</span>, <span class="keyword">day</span>) dt,</span><br><span class="line">    attrs[<span class="string">'timestamp'</span>] timestamp_,</span><br><span class="line">    <span class="string">'event_1'</span> event_id,</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db.table1</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">YEAR</span>, <span class="keyword">MONTH</span>, <span class="keyword">DAY</span>) = <span class="string">'20181030'</span></span><br><span class="line"><span class="keyword">union</span> all</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    param[<span class="string">'OrderId'</span>] order_id,</span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">year</span>,<span class="keyword">month</span>,<span class="keyword">day</span>) dt,</span><br><span class="line">    param[<span class="string">'Timestamp'</span>]*<span class="number">1000</span> timestamp_,</span><br><span class="line">    <span class="string">'event_2'</span> event_id</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    db.table2</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    <span class="keyword">concat</span>(<span class="keyword">year</span>,<span class="keyword">month</span>,<span class="keyword">day</span>) = <span class="string">'20181030'</span></span><br></pre></td></tr></table></figure>
+<p>请关注 timestamp_这个字段，在第二张表中，该字段需要做一个乘法，而被转换为 double 类型，而在第一张表中仍为 string 类型。这两张表 union 后该字段被转成 string 类型。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/11/04/cjo2zi5l40006oofyzuf2mzup/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/11/03/cjo2zi5kw0002oofy0l1nrz2t/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyu@BNU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机智少年的DS之路">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/03/cjo2zi5kw0002oofy0l1nrz2t/" itemprop="url">
                   shell技巧
                 </a>
               
@@ -350,7 +552,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-04 13:50:28" itemprop="dateModified" datetime="2018-11-04T13:50:28+08:00">2018-11-04</time>
+                <time title="修改时间：2018-11-04 22:32:25" itemprop="dateModified" datetime="2018-11-04T22:32:25+08:00">2018-11-04</time>
               
             
           </span>
@@ -410,7 +612,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2018/11/03/cjo2gp75o0006jpud4m0rztu8/#more" rel="contents">
+              <a class="btn" href="/2018/11/03/cjo2zi5kw0002oofy0l1nrz2t/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -467,7 +669,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/04/02/cjo2gp75h0002jpudrhes86lh/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/04/02/cjo2zi5l50007oofy8rwrft2o/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -486,7 +688,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/cjo2gp75h0002jpudrhes86lh/" itemprop="url">
+                <a class="post-title-link" href="/2018/04/02/cjo2zi5l50007oofy8rwrft2o/" itemprop="url">
                   python+newspaper实现通用新闻爬虫
                 </a>
               
@@ -530,7 +732,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-04 13:50:28" itemprop="dateModified" datetime="2018-11-04T13:50:28+08:00">2018-11-04</time>
+                <time title="修改时间：2018-11-04 22:32:25" itemprop="dateModified" datetime="2018-11-04T22:32:25+08:00">2018-11-04</time>
               
             
           </span>
@@ -587,7 +789,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2018/04/02/cjo2gp75h0002jpudrhes86lh/#more" rel="contents">
+              <a class="btn" href="/2018/04/02/cjo2zi5l50007oofy8rwrft2o/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -644,7 +846,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo2gp75k0003jpud9uoi2qry/">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo2zi5l00003oofy3ty91v62/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinyu@BNU">
@@ -663,7 +865,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/31/cjo2gp75k0003jpud9uoi2qry/" itemprop="url">
+                <a class="post-title-link" href="/2018/03/31/cjo2zi5l00003oofy3ty91v62/" itemprop="url">
                   多项式拟合中的最小二乘与极大似然
                 </a>
               
@@ -707,7 +909,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-04 13:50:28" itemprop="dateModified" datetime="2018-11-04T13:50:28+08:00">2018-11-04</time>
+                <time title="修改时间：2018-11-04 22:32:25" itemprop="dateModified" datetime="2018-11-04T22:32:25+08:00">2018-11-04</time>
               
             
           </span>
@@ -769,7 +971,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2018/03/31/cjo2gp75k0003jpud9uoi2qry/#more" rel="contents">
+              <a class="btn" href="/2018/03/31/cjo2zi5l00003oofy3ty91v62/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -856,7 +1058,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -875,7 +1077,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -894,7 +1098,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1136,6 +1342,8 @@
 
   
   
+    
+      
     
       
     

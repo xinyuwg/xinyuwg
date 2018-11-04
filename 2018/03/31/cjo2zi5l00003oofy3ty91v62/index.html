@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/20181104103924381_easyicon_net_32.icns?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/20181104103930402_easyicon_net_16.icns?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在噪声服从正态分布的假设下,最小二乘的解析解可由极大似然得到 岭回归可以用正态分布和最大后验估计解释   多项式拟合先回顾下多项式拟合.假设训练集$X$由$N$个观测点组成,记作$X={x_1,x_2,…,x_N}$;其对应观测值为$t$.我们的目标是通过训练集建立模型,对新的观测点$\hat{x}$预测其对应的值$\hat{t}$. 最直观的想法便是使用多项式来拟合,其形式如下:$$y(x,w">
+<meta name="keywords" content="PRML读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多项式拟合中的最小二乘与极大似然">
+<meta property="og:url" content="http://www.xinyuwg.com/2018/03/31/cjo2zi5l00003oofy3ty91v62/index.html">
+<meta property="og:site_name" content="机智少年的DS之路">
+<meta property="og:description" content="在噪声服从正态分布的假设下,最小二乘的解析解可由极大似然得到 岭回归可以用正态分布和最大后验估计解释   多项式拟合先回顾下多项式拟合.假设训练集$X$由$N$个观测点组成,记作$X={x_1,x_2,…,x_N}$;其对应观测值为$t$.我们的目标是通过训练集建立模型,对新的观测点$\hat{x}$预测其对应的值$\hat{t}$. 最直观的想法便是使用多项式来拟合,其形式如下:$$y(x,w">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.xinyuwg.com/img/reg-prob.png">
+<meta property="og:updated_time" content="2018-11-04T14:32:25.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多项式拟合中的最小二乘与极大似然">
+<meta name="twitter:description" content="在噪声服从正态分布的假设下,最小二乘的解析解可由极大似然得到 岭回归可以用正态分布和最大后验估计解释   多项式拟合先回顾下多项式拟合.假设训练集$X$由$N$个观测点组成,记作$X={x_1,x_2,…,x_N}$;其对应观测值为$t$.我们的目标是通过训练集建立模型,对新的观测点$\hat{x}$预测其对应的值$\hat{t}$. 最直观的想法便是使用多项式来拟合,其形式如下:$$y(x,w">
+<meta name="twitter:image" content="http://www.xinyuwg.com/img/reg-prob.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://www.xinyuwg.com/2018/03/31/cjo2zi5l00003oofy3ty91v62/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>多项式拟合中的最小二乘与极大似然 | 机智少年的DS之路</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">机智少年的DS之路</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xinyuwg.com/2018/03/31/cjo2zi5l00003oofy3ty91v62/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinyu@BNU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="机智少年的DS之路">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多项式拟合中的最小二乘与极大似然
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-31 20:11:25" itemprop="dateCreated datePublished" datetime="2018-03-31T20:11:25+08:00">2018-03-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-04 22:32:25" itemprop="dateModified" datetime="2018-11-04T22:32:25+08:00">2018-11-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/stat/" itemprop="url" rel="index"><span itemprop="name">stat</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><ol>
+<li>在噪声服从正态分布的假设下,最小二乘的解析解可由极大似然得到</li>
+<li>岭回归可以用正态分布和最大后验估计解释</li>
+</ol>
+</blockquote>
+<h2 id="多项式拟合"><a href="#多项式拟合" class="headerlink" title="多项式拟合"></a>多项式拟合</h2><p>先回顾下多项式拟合.假设训练集$X$由$N$个观测点组成,记作$X={x_1,x_2,…,x_N}$;其对应观测值为$t$.我们的目标是通过训练集建立模型,对新的观测点$\hat{x}$预测其对应的值$\hat{t}$.</p>
+<p>最直观的想法便是使用多项式来拟合,其形式如下:$$y(x,w)=w_0+w_1x+…+w_Mx^M=\sum_{n=0}^{M}{w_nx^n}$$<br>其中多项式系数$w_0,…,w_M$为多项式系数,记作向量$w$,是该模型的待估参数.$M$为多项式的阶数.</p>
+<a id="more"></a>
+<h3 id="最小二乘"><a href="#最小二乘" class="headerlink" title="最小二乘"></a>最小二乘</h3><p>对于误差的估计我们可以用最小化误差函数实现.在最小二乘中,误差函数定义为$$E(w)=\frac{1}{2} \sum_{n=1}^N{y(x_n,w)-t_n}^2$$通过最小化误差函数我们便可以得到$w$的估计值 $w=\arg\min E(x)$</p>
+<h3 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h3><p>我们知道,多项式阶数$M$控制了模型复杂度,越高的阶数能够在训练集上带来更好的拟合效果.但这降低了模型的泛化能力,这种行为叫做过拟合(over-fitting).另外随着$M$增大,多项式系数$w$也会迅速增大,这导致了拟合曲线出现剧烈震荡.书上对该现象的直观解释为:</p>
+<blockquote>
+<p>What is happening is that the more flexible polynomials with larger values of $M$ are becoming increasingly tuned to the random noise on the target. </p>
+</blockquote>
+<p>为了解决这个问题,我们引入正则化(regularization).简单来说,我们在误差函数中增加一个惩罚项,这种惩罚项的形式采用系数平方和,修改后的误差函数为:<br>$$E(w)=\frac{1}{2} \sum_{n=1}^N{y(x_n,w)-t_n}^2+\frac{\lambda}{2}||w||^2$$</p>
+<h2 id="概率角度"><a href="#概率角度" class="headerlink" title="概率角度"></a>概率角度</h2><p>现在,我们从概率的角度来重新审视这个问题.还记不记得我们在建回归模型时经常假设模型具有以下形式:$$f(x)=\sum_{j=1}^dw_jx_j+\epsilon,\epsilon\sim N(o,\sigma^2)$$<br>也就是说给定观测点$x$,我们假定对应的观测值$t$服从正态分布,分布的均值为$y(x,w)$.因此有$$p(t|x,w,\sigma^2)=N(t|y(x,w),\sigma^2)$$我们可以通过下图更直观地理解这一点:<br><img src="/img/reg-prob.png" alt="给定x条件下的高斯条件概率分布"><br>如果数据点都从假定的分布中生成,那么似然函数为$$p(t|x,w,\sigma^2)=\prod_{n=1}^NN(t_n|y(x_n,w),\sigma^2)$$<br>将正态分布的密度函数带入,其对数似然为$$\ln p(t|x,w,\sigma^2)=-\frac{\sigma}{2}\sum_{n=1}^N{y(x_n,w)-t_n}^2 +\frac{N}{2}\ln\sigma^2-\frac{N}{2}\ln(2\pi)$$<br>于是现在我们便可以通过对上式对w求极值得到w的极大似然估计$$w=\arg\min \sum_{n=1}^N{y(x_n,w)-t_n}^2 $$注意上式后两项与w无关.观察下结果,是不是和最小二乘的误差函数一模一样呀.</p>
+<p>更进一步,我们引入贝叶斯方法.假如我们希望控制多项式系数$w$的大小,便假定多项式系数$w$的先验分布为如下形式$$p(w|\alpha)=N(w|0,\alpha^{-1}I)=(\frac{\alpha}{2\pi})^{\frac{M+1}{2}}exp{-\frac{\alpha}{2}w^Tw}$$<br>其中$\alpha$称为分布的精度(precision).根据贝叶斯定理,$w$的后验正比于先验和似然函数的成绩<br>$$p(w|x,t,\alpha,\sigma^2)\propto p(t|x,w,\sigma^2)p(w|\alpha)$$</p>
+<p>我们通过最大化后验概率来确定$w$.步骤与之前相似,结果如下式$$w=\arg\min\frac{1}{2 \sigma^2}\sum_{n=1}^{N}{y(x_n,w)-t_n}^2+\frac{\alpha}{2}w^Tw$$<br>于是我们看到最大化后验概率等价于最小化正则化平方和误差,即岭回归.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PRML读书笔记/" rel="tag"># PRML读书笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/cjo2zi5l50007oofy8rwrft2o/" rel="prev" title="python+newspaper实现通用新闻爬虫">
+                python+newspaper实现通用新闻爬虫 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Xinyu@BNU">
+            
+              <p class="site-author-name" itemprop="name">Xinyu@BNU</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多项式拟合"><span class="nav-number">1.</span> <span class="nav-text">多项式拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小二乘"><span class="nav-number">1.1.</span> <span class="nav-text">最小二乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#岭回归"><span class="nav-number">1.2.</span> <span class="nav-text">岭回归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概率角度"><span class="nav-number">2.</span> <span class="nav-text">概率角度</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinyu@BNU</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a></div>
+<div class="host">
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
